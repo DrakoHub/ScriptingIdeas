@@ -4,6 +4,8 @@
 import mods.gregtech.recipe.RecipeMap;
 import mods.mekanism.thermalevaporation;
 import mods.mekanism.GasConversion;
+import mods.mekanism.reaction;
+import mods.mekanism.chemical.crystallizer;
 
 val Cutter as RecipeMap = <recipemap:cutter>;
 val ChemReactor as RecipeMap = <recipemap:chemical_reactor>;
@@ -15,7 +17,12 @@ val CrackingUnit as RecipeMap = <recipemap:cracker>;
 val Elctrolyzer as RecipeMap = <recipemap:electrolyzer>;
 val LargeChemReactor as RecipeMap = <recipemap:large_chemical_reactor>;
 val VacuumFrz as RecipeMap = <recipemap:vacuum_freezer>;
-
+val Extractor as RecipeMap = <recipemap:extractor>;
+val Macerator as RecipeMap = <recipemap:macerator>;
+val Arc as RecipeMap = <recipemap:arc_furnace>;
+val BlastFurc as RecipeMap = <recipemap:electric_blast_furnace>;
+val ForgeHammer as RecipeMap = <recipemap:forge_hammer>;
+val
 //Netherite Production
   //DebrisCutting
   Cutter.recipeBuilder()
@@ -86,16 +93,77 @@ val VacuumFrz as RecipeMap = <recipemap:vacuum_freezer>;
   //DistillationTower
   DistillationTower.recipeBuilder()
     .inputFluids(<liquid:hyperclean_netherite_scrap_slurry>)
-    .outputFluids([<liquid:molten_crystaline_netherite>, <liquid:heavy_nether_oil>, <liquid:sulfuric_ardite_slurry>, *for think*])
+    .outputFluids([<liquid:molten_cristaline_netherite>, <liquid:heavy_nether_oil>, <liquid:sulfuric_ardite_slurry>, *for think*])
     .duration(3*60*20+15*20)
     .EUt(720)
     .buildAndRegister();
   //VaccumMoltenCrytal
   VacuumFrz.recipeBuilder()
-    .inputFluids(<liquid:molten_crystaline_netherite>)
-    .outputFluids(<liquid:molten_stable_crytaline_netherite>)
+    .inputFluids(<liquid:molten_cristaline_netherite>)
+    .outputFluids(<liquid:molten_stable_cristaline_netherite>)
     .duration(1*60*20)
     .EUt(320)
     .buildAndRegister();
   //Crystalization
+  mods.mekanism.reaction.addRecipe(<liquid:molten_stable_cristaline_netherite>, <gas:argon>, <*for think*>, <gas:argoneted_stable_cristaline_netherite>, 560000, 6*20*60);
+  mods.mekanism.chemical.crystallizer.addRecipe(<gas:argoneted_stable_cristaline_netherite>, <argoneted_netherite_crystal>);
+  //Extraction
+  Extractor.recipeBuilder()
+    .inputs(<argoneted_netherite_crystal>)
+    .outputs(<netherite_crystal>)
+    .outputFluids(<gas:argon>)
+    .duration(20*20)
+    .EUt(120)
+    .buildAndRegister();
+  //Maceration
+  Macerator.recipeBuilder()
+    .inputs(<netherite_crystal>)
+    .outputs(<netherite_substrate>)
+    .duration(1*60*20)
+    .EUt(120)
+    .buildAndRegister();
+  //Liquid Subtrate
+  Arc.recipeBuilder()
+    .inputs(<netherite_substrate>)
+    .outputFluids(<liquid:liquid_netherite_substrate>)
+    .duration(1*60*20)
+    .EUt(520)
+    .buildAndRegister();
+  //Mixing with Gold
+  Mixer.recipeBuilder();
+    .inputFluids([<liquid:liquid_netherite_substrate>, <liquid:molten_gold>])
+    .inputs(<carbonifilic_nhtcg2>)
+    .outputFluids(<liquid:molten_netherite>)
+    .duration(1*60*20)
+    .EUt(520)
+    .buildAndRegister();
+  //VacuumFrz
+  VacuumFrz.recipeBuilder()
+    .inputFluids(<liquid:molten_netherite>)
+    .output(<large_netherite_chunk>)
+  //Cutting
+  Cutter.recipeBuilder()
+    .inputs(<large_netherite_chunk>)
+    .inputsFluids(<liquid:highvelocitylubrificant>)
+    .output(<cutted_netherite>*4)
+    .duration(45*20)
+    .EUt(320)
+    .buildAndRegister();
+  //blasiting
+  BlastFurc.recipeBuilder()
+    .inputs(<cutted_netherite>)
+    .inputFluids(<liquid:molten_graphene>)
+    .ouputs(<hot_dilated_netherite_ingot>)
+  //Hammer
+  ForgeHammer.recipeBuilder()
+    .inputs(<hot_dilated_netherite_ingot>)
+    .output(<hot_netherite_ingot>)
+  //VacuumFrz
+  VacuumFrz.recipeBuilder()
+    .inputs(<hot_netherite_ingot>)
+    .output(<netherite_ingot>)
+  //Block
+    
+  
+  
   
