@@ -3,16 +3,18 @@
 
 import mods.gregtech.recipe.RecipeMap;
 import mods.mekanism.thermalevaporation;
+import mods.mekanism.GasConversion;
 
 val Cutter as RecipeMap = <recipemap:cutter>;
 val ChemReactor as RecipeMap = <recipemap:chemical_reactor>;
-val RefinaryTower as RecipeMap = <recipemap:distillation_tower>;
+val DistillationTower as RecipeMap = <recipemap:distillation_tower>;
 val Mixer as RecipeMap = <recipemap:mixer>;
 val Centrifuge as RecipeMap = <recipemap:centrifuge>;
 val FluidHeater as RecipeMap = <recipemap:fluid_heater>;
 val CrackingUnit as RecipeMap = <recipemap:cracker>;
 val Elctrolyzer as RecipeMap = <recipemap:electrolyzer>;
 val LargeChemReactor as RecipeMap = <recipemap:large_chemical_reactor>;
+val VacuumFrz as RecipeMap = <recipemap:vacuum_freezer>;
 
 //Netherite Production
   //DebrisCutting
@@ -73,7 +75,7 @@ val LargeChemReactor as RecipeMap = <recipemap:large_chemical_reactor>;
     .EUt(320)
     .buildAndRegister();
   //RemoveTheCrystals
-  LargeChemReactor.recipeBuilde()
+  LargeChemReactor.recipeBuilder()
     .inputFluids(<liquid:distabilazed_semicrystalizated_netherite_scrap_slury>)
     .inputs()
     .output([*for think:in crystal*])
@@ -81,3 +83,19 @@ val LargeChemReactor as RecipeMap = <recipemap:large_chemical_reactor>;
     .duration(2*60*20)
     .EUt(220)
     .buildAndRegister();
+  //DistillationTower
+  DistillationTower.recipeBuilder()
+    .inputFluids(<liquid:hyperclean_netherite_scrap_slurry>)
+    .outputFluids([<liquid:molten_crystaline_netherite>, <liquid:heavy_nether_oil>, <liquid:sulfuric_ardite_slurry>, *for think*])
+    .duration(3*60*20+15*20)
+    .EUt(720)
+    .buildAndRegister();
+  //VaccumMoltenCrytal
+  VacuumFrz.recipeBuilder()
+    .inputFluids(<liquid:molten_crystaline_netherite>)
+    .outputFluids(<liquid:molten_stable_crytaline_netherite>)
+    .duration(1*60*20)
+    .EUt(320)
+    .buildAndRegister();
+  //Crystalization
+  
