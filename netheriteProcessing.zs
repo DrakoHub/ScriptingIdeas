@@ -22,7 +22,9 @@ val Macerator as RecipeMap = <recipemap:macerator>;
 val Arc as RecipeMap = <recipemap:arc_furnace>;
 val BlastFurc as RecipeMap = <recipemap:electric_blast_furnace>;
 val ForgeHammer as RecipeMap = <recipemap:forge_hammer>;
-val
+val ImplosionComp as RecipeMap = <recipemap:implosion_compressor>;
+val Extruder as RecipeMap = <recipemap:extruder>
+
 //Netherite Production
   //DebrisCutting
   Cutter.recipeBuilder()
@@ -163,7 +165,14 @@ val
     .inputs(<hot_netherite_ingot>)
     .output(<netherite_ingot>)
   //Block
-    
+  ImplosionComp.recipeBuilder()
+    .property("explosives", 8)
+    .inputs(<netherite_ingot>*9)
+  //Plates/gear/rod/etc.
+  Extruder.recipeBuilder()
+    .inputs([<hot_netherite_ingot>*depend, mold])
+  
+  
   
   
   
