@@ -66,7 +66,7 @@ MachineHandler("ulv",          true,               true,               false,   
 MachineHandler("lv",           true,               true,                true,               false,          false);
 MachineHandler("mv",           true,               true,                true,                true,          false);
 MachineHandler("hv",          false,               true,                true,                true,          false);
-val hyperVoltage =  ["ev", "iv", "luv", "zpm", "uv", "uhv"]as string[];
+val hyperVoltage =  ["ev", "iv", "luv", "zpm", "uv", "uhv", "uev", "uiv", "umv", "uxv", "max"]as string[];
 for string in hyperVoltage{
 MachineHandler(string,        false,               true,                true,                true,           true);
 }
