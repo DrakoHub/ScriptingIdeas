@@ -30,8 +30,8 @@ function MachineHandler(tier as string,
 }
 
 //Function     tier           liquidProff         ChemicalProff
-MachineHandler(ulv,           true,               false);
-MachineHandler(lv,           true,               true);
-MachineHandler(mv,           true,               true);
-MachineHandler(hv,           true,               true);
-MachineHandler(iv,           true,               true);
+MachineHandler("ulv",           true,               false);
+MachineHandler("lv",           true,               true);
+MachineHandler("mv",           true,               true);
+MachineHandler("hv",           true,               true);
+MachineHandler("iv",           true,               true);
