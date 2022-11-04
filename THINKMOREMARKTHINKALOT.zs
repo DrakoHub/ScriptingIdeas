@@ -7,7 +7,6 @@ import mods.gregtech.recipe.Utils;
 import mods.gregtech.MaterialFlag;
 import mods.gregtech.MaterialFlagBuilder;
 
-val AddFlags = [] as string[];
 val FlagSufixes = ["curvedx", "curvedy", "curvedxy", "curved_doublex", "curved_doubley"] as string[];
 val FlagPrefixes = ["", "_dense", "_large", "_light", "_heavy"] as string[];
 
@@ -17,7 +16,6 @@ for i, FlagPrefix in FlagPrefixes {
     if (DegreeLoop < 135) {
       AddFlags += "plate_"~FlagPrefix~"_"~FlagSufix~DegreeLoop).build();
       DegreeLoop += 15;
-      print(AddFlags);
     }
     MaterialFlagBuilder.create("generate"~FlagPrefix~"_plate_"~FlagSufixes).build();
     OrePrefix.getPrefix(AddFlags).setGenerationPredicate(function(mat as Material) as bool {
