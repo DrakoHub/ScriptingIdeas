@@ -17,6 +17,7 @@ for i, FlagPrefix in FlagPrefixes {
     if (DegreeLoop < 135) {
       AddFlags += "plate_"~FlagPrefix~"_"~FlagSufix~DegreeLoop).build();
       DegreeLoop += 15;
+      print(AddFlags)
     }
     MaterialFlagBuilder.create("generate"~FlagPrefix~"_plate_"~FlagSufixes).build();
     OrePrefix.getPrefix(AddFlags).setGenerationPredicate(function(mat as Material) as bool {
