@@ -40,7 +40,7 @@ sheetDouble.generateRecipes(function(orePrefix as OrePrefix, material as Materia
     // Horse Press
     mods.horsepower.Press.add(Utils.ore(sheet, material)*2, Utils.item(orePrefix, material));
     // Anvil
-    Anvil.addRecipe(Utils.ore(sheet, material), Utils.item(orePrefix, material), "bend_any", "punch_second_last", "bend_third_last");
+    Anvil.addRecipe(Utils.ore(sheet, material)*2, Utils.item(orePrefix, material), "bend_any", "punch_second_last", "bend_third_last");
 } as IOreRecipeHandler););
 
 plate.generateRecipes(function(orePrefix as OrePrefix, material as Material) {
