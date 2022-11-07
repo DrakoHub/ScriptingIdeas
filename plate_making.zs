@@ -33,11 +33,20 @@ sheet.generateRecipes(function(orePrefix as OrePrefix, material as Material) {
     Anvil.addRecipe(Utils.ore("ingot", material), Utils.item(orePrefix, material), "hit_any", "hit_second_last", "hit_third_last");
 } as IOreRecipeHandler););
 
+val sheetDouble as OrePrefix = OrePrefix.registerOrePrefix("sheetDouble", 1);
+
+sheetDouble.generateRecipes(function(orePrefix as OrePrefix, material as Material) {
+    // Horse Press
+    mods.horsepower.Press.add(Utils.ore(sheet, material)*2, Utils.item(orePrefix, material));
+    // Anvil
+    Anvil.addRecipe(Utils.ore(sheet, material), Utils.item(orePrefix, material), "bend_any", "punch_second_last", "bend_third_last");
+} as IOreRecipeHandler););
+
 val plate as OrePrefix = OrePrefix.getPrefix("plate");
 
 plate.generateRecipes(function(orePrefix as OrePrefix, material as Material) {
     // Anvil
-    Anvil.addRecipe(Utils.ore(sheet, material), Utils.item(orePrefix, material), "draw_any", "draw_second_last", "draw_third_last");
+    Anvil.addRecipe(Utils.ore(sheetDouble, material), Utils.item(orePrefix, material), "draw_any", "draw_second_last", "draw_third_last");
     // Horse Press
     mods.horsepower.Press.add(Utils.ore(hotIngot, material), Utils.item(orePrefix, <material:copper>));
     // Rolling Machine
