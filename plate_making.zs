@@ -21,8 +21,8 @@ val plate as OrePrefix = OrePrefix.getPrefix("plate");
 val block as OrePrefix = OrePrefix.getPrefix("block");
 val hotIngot = OrePrefix.getPrefix("ingotHot");
 
-val sheet as OrePrefix = OrePrefix.registerOrePrefix("sheet", 1);
-val sheetDouble as OrePrefix = OrePrefix.registerOrePrefix("sheetDouble", 1);
+val sheet as OrePrefix = OrePrefix.registerOrePrefix("sheet", 1, 1);
+val sheetDouble as OrePrefix = OrePrefix.registerOrePrefix("sheetDouble", 2, 1);
 
 
 hotIngot.setGenerationPredicate(function(mat as Material) as bool {
